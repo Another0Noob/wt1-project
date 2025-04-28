@@ -1,18 +1,12 @@
-FROM node:lts
-
+FROM node:lts AS builder
 WORKDIR /home/node
-
-# Copy package.json and package-lock.json
 COPY package.json package-lock.json /home/node/
-
-# Install dependencies
-RUN npm install
-
-# Copy the rest of the application code
+RUN npm install --production
 COPY . /home/node/
 
-# Expose the application port
+# Production stage
+FROM node:lts-slim
+WORKDIR /home/node
+COPY --from=builder /home/node /home/node
 EXPOSE 3001
-
-# Start the application
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
