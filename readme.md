@@ -39,3 +39,8 @@ NGINX:
 Configured default.conf.template to serve static files from public_html at the path /doc.
 
 NGINX acts as a reverse proxy for the Express app.
+
+## 3e
+- Updated to use a multi-stage build:
+  - Builder stage: Installs dependencies and prepares the application.
+  - Production stage: Creates a lightweight image with only the necessary files for running the app.
