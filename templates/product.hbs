@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1>Produkte nach Nachhaltigkeit filtern</h1>
+
+<h2>Produktliste</h2>
+
+{{#each produkte}}
+  <div style="border:1px solid #ccc; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+    <h3>{{produktname}}</h3>
+
+    <p><strong>Bewertung:</strong>
+      {{#each (stars bewertungen)}}★{{/each}}{{#unless (stars bewertungen)}}Keine Bewertung{{/unless}}
+    </p>
+
+    {{#if co2}}
+      <p>CO₂: {{co2}} kg, Herkunft: {{herkunftsland}}</p>
+    {{else}}
+      <p>Herkunft: {{herkunftsland}}</p>
+    {{/if}}
+
+    {{#if labels.length}}
+      {{#each labels}}
+        <span style="background:#e0f0d8; padding:2px 6px; border-radius:4px; margin-right:5px;">{{this}}</span>
+      {{/each}}
+    {{/if}}
+
+    {{#if branche}}
+      <p style="color:red; font-weight:bold;">Kontroverse Branche: {{branche}}</p>
+    {{/if}}
+  </div>
+{{/each}}
+</body>
+</html>
