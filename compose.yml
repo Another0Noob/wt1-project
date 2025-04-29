@@ -22,7 +22,7 @@ services:
      restart: always
 
   application:
-    image: wt1-lab02-local
+    image: wt1-project-local
     build:
       context: .
       dockerfile: Dockerfile

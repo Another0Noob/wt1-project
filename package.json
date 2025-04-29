@@ -1,25 +1,26 @@
 {
-  "name": "vt-lab02",
+  "name": "wt1-project",
   "version": "1.0.0",
+  "description": "Die Boycott App ermöglicht Nutzern, Produkte und deren Hersteller zu dokumentieren und zu bewerten, um informierte Kaufentscheidungen zu treffen.",
+  "homepage": "https://github.com/Another0Noob/wt1-project#readme",
+  "bugs": {
+    "url": "https://github.com/Another0Noob/wt1-project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Another0Noob/wt1-project.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Another0Noob/VT-lab02.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Another0Noob/VT-lab02/issues"
-  },
-  "homepage": "https://github.com/Another0Noob/VT-lab02#readme",
   "dependencies": {
     "espress": "^0.0.0",
     "express": "^5.1.0"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {}
 }
