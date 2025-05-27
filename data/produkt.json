@@ -1,0 +1,83 @@
+[
+    {
+      "id": 1,
+      "produkt": "Kaffee",
+      "marke": "Starbucks",
+      "labels": ["Fairtrade", "EU Bio", "Klimaneutral"],
+      "controversy": ["Entwaldung", "Kinderarbeit"],
+      "herkunftsland": "Kolumbien"
+    },
+    {
+      "id": 2,
+      "produkt": "Schokolade (Tafel)",
+      "marke": "Lindt",
+      "labels": ["Fairtrade", "EU Bio"],
+      "controversy": ["Palmölindustrie"],
+      "herkunftsland": "Elfenbeinküste"
+    },
+    {
+      "id": 3,
+      "produkt": "T-Shirt (Baumwolle)",
+      "marke": "H&M",
+      "labels": ["EU Bio", "recycling-Material"],
+      "controversy": ["Textilindustrie"],
+      "herkunftsland": "Bangladesch"
+    },
+    {
+      "id": 4,
+      "produkt": "Smartphone",
+      "marke": "Samsung",
+      "labels": ["Klimaneutral"],
+      "controversy": ["E-Schrott", "Kinderarbeit", "Seltene Erden"],
+      "herkunftsland": "China"
+    },
+    {
+      "id": 5,
+      "produkt": "Mineralwasser (1 l)",
+      "marke": "Gerolsteiner",
+      "labels": ["Klimaneutral", "recycling-Material"],
+      "controversy": ["Wasserprivatisierung"],
+      "herkunftsland": "Deutschland"
+    },
+    {
+      "id": 6,
+      "produkt": "Sneaker",
+      "marke": "Nike",
+      "labels": ["recycling-Material"],
+      "controversy": ["Textilindustrie", "Arbeitsbedingungen"],
+      "herkunftsland": "Vietnam"
+    },
+    {
+      "id": 7,
+      "produkt": "Olivenöl",
+      "marke": "Gaea",
+      "labels": ["EU Bio"],
+      "controversy": ["Monokultur", "Landraub"],
+      "herkunftsland": "Griechenland"
+    },
+    {
+      "id": 8,
+      "produkt": "Laptop-Ladegerät",
+      "marke": "Dell",
+      "labels": ["Klimaneutral"],
+      "controversy": ["E-Schrott"],
+      "herkunftsland": "China"
+    },
+    {
+      "id": 9,
+      "produkt": "Duschgel",
+      "marke": "Yves Rocher",
+      "labels": ["EU Bio", "Klimaneutral"],
+      "controversy": ["Palmölindustrie"],
+      "herkunftsland": "Frankreich"
+    },
+    {
+      "id": 10,
+      "produkt": "Papier (A4, 500 Blatt)",
+      "marke": "Xerox",
+      "labels": ["EU Bio", "recycling-Material"],
+      "controversy": ["Abholzung"],
+      "herkunftsland": "Schweden"
+    }
+  ]
+  
