@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Produkt hinzufügen & filtern</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+        .filters, .product-form, .product-list { margin-bottom: 30px; }
+        .product-item { border: 1px solid #ddd; padding: 15px; border-radius: 6px; margin-bottom: 10px; }
+        .label { background: #dff0d8; color: #3c763d; padding: 2px 6px; margin-right: 5px; border-radius: 4px; font-size: 0.9em; }
+        .controversy { background: #f2dede; color: #a94442; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+<h1>Produkte nach Nachhaltigkeit filtern</h1>
+
+<div class="filters">
+    <h3>Filter</h3>
+
+    <label>Suche: <input type="text" placeholder="Produktname" /></label><br />
+
+    <label>CO₂-Grenze: <input type="number" value="2.0" step="0.1" /> kg</label><br />
+
+    <label>Labels (mehrfach wählbar):</label>
+    <select name="labels" multiple>
+        <option value="fairtrade">Fairtrade</option>
+        <option value="eu-bio">EU Bio</option>
+        <option value="klimaneutral">Klimaneutral</option>
+        <option value="recycling">Recycling-Material</option>
+    </select><br />
+
+    <label>Kontroverse Branchen ausschließen (mehrfach wählbar):</label>
+    <select name="controversy" multiple>
+        <option value="öl">Ölindustrie</option>
+        <option value="waffen">Waffenherstellung</option>
+        <option value="fast-fashion">Fast Fashion</option>
+        <option value="none">Keine</option>
+    </select>
+
+    <label for="rating">Bewertung (1-5 Sterne):</label>
+    <select id="rating" name="rating" required>
+        <option value="1">★☆☆☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="4">★★★★☆</option>
+        <option value="5">★★★★★</option>
+    </select>
+</div>
+
+
+<div class="product-list">
+    <h3>Produktliste</h3>
+    <div class="product-item">
+        <h4>Bio-Kaffee</h4>
+        <p><strong>Bewertung:</strong> ★★★★☆</p>
+        <p>CO₂: 1.0 kg, Herkunft: Kolumbien</p>
+        <p><span class="label">Fairtrade</span></p>
+    </div>
+    <div class="product-item">
+        <h4>Recycling-Papier</h4>
+        <p><strong>Bewertung:</strong> ★★★★★</p>
+        <p>CO₂: 0.8 kg, Herkunft: Deutschland</p>
+        <p><span class="label">EU Bio</span> <span class="controversy">Keine</span></p>
+    </div>
+</div>
+
+</body>
+</html>

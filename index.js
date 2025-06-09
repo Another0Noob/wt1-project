@@ -23,7 +23,7 @@ server.set("view engine", "hbs");
 server.set("views", path.join(__dirname, "templates"));
 
 // Static files
-server.use(express.static('public_html'));
+server.use(express.static('public'));
 
 // Routes
 // Add this route at the top of your routes
