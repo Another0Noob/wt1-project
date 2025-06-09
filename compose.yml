@@ -6,10 +6,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    # Remove or comment out the next two lines in production:
-    # volumes:
-    #   - ./:/app
-    #   - /app/node_modules
     command: "npm start"
   nginx:
     image: nginx:latest
