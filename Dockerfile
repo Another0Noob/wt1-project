@@ -1,18 +1,23 @@
+# Use official Node.js LTS image
 FROM node:lts
 
-WORKDIR /home/node
+# Set working directory
+WORKDIR /app
 
-# Copy package.json and package-lock.json
-COPY package.json package-lock.json /home/node/
+# Copy package.json and lock file first
+COPY package.json package-lock.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
-COPY . /home/node/
+# Copy rest of the code
+COPY . .
 
-# Expose the application port
-EXPOSE 3001
+# Build the Next.js app
+RUN npm run build
 
-# Start the application
+# Expose default Next.js port
+EXPOSE 3000
+
+# Start the app in production mode
 CMD ["npm", "start"]

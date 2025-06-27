@@ -1,0 +1,29 @@
+<h1>Produkt bewerten</h1>
+
+<div class="review-form">
+    <form action="/submit-review" method="post">
+        <label for="product-name">Produktname:</label>
+        <select id="product-name" name="product-name" required>
+            {{#each produkte}}
+                <option value="{{id}}">{{produkt}} ({{marke}})</option>
+            {{/each}}
+        </select>
+
+        <label for="rating">Bewertung (1-5 Sterne):</label>
+        <select id="rating" name="rating" required>
+            <option value="1">★☆☆☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="4">★★★★☆</option>
+            <option value="5">★★★★★</option>
+        </select>
+
+        <label for="review-text">Rezension:</label>
+        <textarea id="review-text" name="review-text" rows="5" placeholder="Ihre Rezension hier eingeben..." required></textarea>
+
+        <label for="co2">CO₂-Wert (kg):</label>
+        <input type="number" id="co2" name="co2" step="0.1" placeholder="z.B. 1.5" required />
+
+        <button type="submit">Bewertung hinzufügen</button>
+    </form>
+</div>

@@ -1,25 +1,37 @@
 {
-  "name": "vt-lab02",
+  "name": "wt1-project",
   "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Die Boycott App ermöglicht Nutzern, Produkte und deren Hersteller zu dokumentieren und zu bewerten, um informierte Kaufentscheidungen zu treffen.",
+  "homepage": "https://github.com/Another0Noob/wt1-project#readme",
+  "bugs": {
+    "url": "https://github.com/Another0Noob/wt1-project/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Another0Noob/VT-lab02.git"
+    "url": "git+https://github.com/Another0Noob/wt1-project.git"
   },
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Another0Noob/VT-lab02/issues"
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "homepage": "https://github.com/Another0Noob/VT-lab02#readme",
   "dependencies": {
-    "espress": "^0.0.0",
-    "express": "^5.1.0"
+    "fs-extra": "^11.3.0",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {
+    "@types/node": "^22.15.30",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "eslint": "^9.28.0",
+    "eslint-config-next": "^15.3.3",
+    "nodemon": "^3.1.10",
+    "typescript": "^5.8.3"
+  }
 }
