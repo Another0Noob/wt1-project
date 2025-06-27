@@ -17,21 +17,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "save": "tsx scripts/SaveProduct.ts",
+    "search": "tsx scripts/SearchProducts.ts"
   },
   "dependencies": {
     "fs-extra": "^11.3.0",
+    "mongoose": "^8.16.1",
     "next": "^15.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^22.15.30",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
     "nodemon": "^3.1.10",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
