@@ -1,7 +1,7 @@
 // scripts/SearchProducts.ts
 
 import mongoose from 'mongoose';
-import Product from '../models/shema';
+import Product from '../models/Product';
 
 const mongodbURI =
     process.env.MONGODB_URI ||
