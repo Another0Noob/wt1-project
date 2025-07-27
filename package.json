@@ -33,6 +33,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^5.2.2",
     "@types/jest": "^30.0.0",
     "@types/mongoose": "^5.11.96",
     "@types/node": "^22.15.30",

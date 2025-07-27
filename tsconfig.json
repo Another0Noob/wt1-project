@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "preset": "@shelf/jest-mongodb",
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
