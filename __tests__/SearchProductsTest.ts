@@ -7,13 +7,16 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 
 // Mock the Product model methods
 const mockProductFind = jest.fn();
+const mockProductSave = jest.fn();
 
-// Mock the Product model as a class with static methods
+// Create a proper mock constructor with TypeScript compatibility
 const MockProduct = jest.fn().mockImplementation(function(this: any, data: any) {
     Object.assign(this, data);
-    this.save = jest.fn();
+    this.save = mockProductSave;
     return this;
-});
+}) as jest.MockedFunction<any> & {
+    find: jest.MockedFunction<any>;
+};
 
 // Add static methods to the mock constructor
 MockProduct.find = mockProductFind;
