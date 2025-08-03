@@ -1,8 +1,26 @@
 // app/page.tsx or pages/index.tsx
-import produkte from '../data/produkt.json';
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Header from '../components/Header';
 
+type Produkt = {
+    _id: string;
+    produkt: string;
+    marke: string;
+    labels: string[];
+    controversy: string[];
+    herkunftsland: string;
+};
+
 export default function Home() {
+    const [produkte, setProdukte] = useState<Produkt[]>([]);
+
+    useEffect(() => {
+        fetch('/api/products')
+            .then(res => res.json())
+            .then(data => setProdukte(data));
+    }, []);
+
     const latestProdukte = produkte.slice(0, 5);
 
     return (
@@ -10,33 +28,30 @@ export default function Home() {
             <Header />
             <div className="home-container">
                 <h1>Willkommen zum Nachhaltigen Produktkatalog</h1>
-
                 <div className="feature-cards">
                     <div className="card">
                         <h2>Produkte durchsuchen</h2>
                         <p>Durchsuchen Sie unsere Produktliste nach nachhaltigen Artikeln</p>
                         <p>Verfügbare Produkte: {produkte.length}</p>
-                        <a href="search" className="button">Zur Suche</a>
+                        <Link href="/search" className="button">Zur Suche</Link>
                     </div>
-
                     <div className="card">
                         <h2>Neueste Produkte</h2>
                         <ul className="latest-products">
                             {latestProdukte.map((p, index) => (
-                                <li key={index}>
+                                <li key={p._id || index}>
                                     <strong>{p.produkt}</strong> von {p.marke}
-                                    {p.labels?.map((label, i) => (
+                                    {p.labels?.map((label: string, i: number) => (
                                         <span className="label" key={i}>{label}</span>
                                     ))}
                                 </li>
                             ))}
                         </ul>
                     </div>
-
                     <div className="card">
                         <h2>Produkt bewerten</h2>
                         <p>Teilen Sie Ihre Erfahrungen mit nachhaltigen Produkten</p>
-                        <a href="/review" className="button">Bewertung abgeben</a>
+                        <Link href="/review" className="button">Bewertung abgeben</Link>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+
 services:
   application:
     image: wt1-project-local
@@ -7,6 +8,10 @@ services:
     ports:
       - "3000:3000"
     command: "npm start"
+    depends_on:
+      - mongo
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/myapp
   nginx:
     image: nginx:latest
     container_name: reverse_proxy
@@ -23,3 +28,14 @@ services:
     depends_on:
       - application
     restart: always
+  mongo:
+    container_name: mongo-backend
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: myapp
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb_data_container:/data/db
+      - ./seed:/docker-entrypoint-initdb.d

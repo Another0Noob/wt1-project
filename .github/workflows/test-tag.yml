@@ -1,0 +1,64 @@
+name: Test & Tag
+
+on:
+  push:
+    branches: [ main, LAB_08 ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm test
+
+  systemtest:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: testing  # Reference your environment here
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run system tests
+        run: npm run systemtest
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}  # Now pulls from environment
+
+  tag-lab-08:
+    needs: [test, systemtest]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tag LAB_08
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git tag LAB_08
+          git push origin LAB_08

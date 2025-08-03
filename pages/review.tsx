@@ -1,7 +1,22 @@
-import produkte from '../data/produkt.json';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 
+type Produkt = {
+    _id: string;
+    produkt: string;
+    marke: string;
+    // add other fields if needed
+};
+
 export default function ReviewPage() {
+    const [produkte, setProdukte] = useState<Produkt[]>([]);
+
+    useEffect(() => {
+        fetch('/api/products')
+            .then(res => res.json())
+            .then(data => setProdukte(data));
+    }, []);
+
     return (
         <Layout title="Produkt bewerten">
             <h1>Produkt bewerten</h1>
@@ -11,7 +26,7 @@ export default function ReviewPage() {
                     <label htmlFor="product-name">Produktname:</label>
                     <select id="product-name" name="product-name" required>
                         {produkte.map((produkt) => (
-                            <option key={produkt.id} value={produkt.id}>
+                            <option key={produkt._id} value={produkt._id}>
                                 {produkt.produkt} ({produkt.marke})
                             </option>
                         ))}

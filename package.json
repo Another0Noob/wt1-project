@@ -12,26 +12,45 @@
   },
   "license": "ISC",
   "author": "",
-  "main": "index.js",
+  "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "save": "tsx scripts/SaveProduct.ts",
+    "search": "tsx scripts/SearchProducts.ts",
+    "test": "jest __tests__/unit",
+    "test:unit": "jest __tests__/unit",
+    "test:system": "jest __tests__/system",
+    "test:all": "jest",
+    "test:watch": "jest --watch __tests__/unit",
+    "test:coverage": "jest --coverage __tests__/unit",
+    "systemtest": "jest __tests__/system"
   },
   "dependencies": {
+    "check-node-version": "^4.2.1",
     "fs-extra": "^11.3.0",
+    "mongodb-memory-server": "^10.1.4",
+    "mongoose": "^8.16.1",
     "next": "^15.3.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@shelf/jest-mongodb": "^5.2.2",
+    "@types/jest": "^30.0.0",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^22.15.30",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
+    "jest": "^30.0.5",
+    "node-mocks-http": "^1.17.2",
     "nodemon": "^3.1.10",
+    "ts-jest": "^29.4.0",
+    "tsx": "^4.20.3",
     "typescript": "^5.8.3"
   }
 }
