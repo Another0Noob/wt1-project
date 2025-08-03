@@ -18,6 +18,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "seed": "tsx scripts/SeedDatabase.ts",
     "save": "tsx scripts/SaveProduct.ts",
     "search": "tsx scripts/SearchProducts.ts",
     "test": "jest __tests__/unit",
@@ -30,6 +31,7 @@
   },
   "dependencies": {
     "check-node-version": "^4.2.1",
+    "dotenv": "^17.2.1",
     "fs-extra": "^11.3.0",
     "mongodb-memory-server": "^10.1.4",
     "mongoose": "^8.16.1",

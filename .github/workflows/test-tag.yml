@@ -2,7 +2,7 @@ name: Test & Tag
 
 on:
   push:
-    branches: [ main, LAB_08 ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
@@ -56,9 +56,22 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
-      - name: Tag LAB_08
+        with:
+          fetch-depth: 0  # Fetch all history for tags
+
+      - name: Configure Git
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+
+      - name: Delete existing tag if it exists
+        run: |
+          # Delete local tag if it exists
+          git tag -d LAB_08 2>/dev/null || true
+          # Delete remote tag if it exists
+          git push origin :refs/tags/LAB_08 2>/dev/null || true
+
+      - name: Create and push new tag
+        run: |
           git tag LAB_08
-          git push origin LAB_08
+          git push origin refs/tags/LAB_08
