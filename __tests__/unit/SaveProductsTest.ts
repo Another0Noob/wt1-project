@@ -13,7 +13,7 @@ const mockProductConstructor = jest.fn().mockImplementation(function(this: any, 
     return this;
 });
 
-jest.mock("../models/Product", () => ({
+jest.mock("../../models/Product", () => ({
     __esModule: true,
     default: mockProductConstructor,
 }));
@@ -58,7 +58,7 @@ describe("SaveProduct Script with Mongoose Spies", () => {
         const mongoUri = mongoServer.getUri();
         await mongoose.connect(mongoUri);
 
-        const Product = (await import("../models/Product")).default;
+        const Product = (await import("../../models/Product")).default;
         const newProduct = new Product({
             id: 11,
             produkt: 'Kakao',
@@ -90,7 +90,7 @@ describe("SaveProduct Script with Mongoose Spies", () => {
         const validationError = new Error("Validation failed");
         mockProductSave.mockRejectedValue(validationError);
 
-        const Product = (await import("../models/Product")).default;
+        const Product = (await import("../../models/Product")).default;
         const newProduct = new Product({
             id: 12,
             produkt: 'Invalid Product'
@@ -117,7 +117,7 @@ describe("SaveProduct Script with Mongoose Spies", () => {
 
         mockProductSave.mockResolvedValue({ ...productData, _id: "507f1f77bcf86cd799439012" });
 
-        const Product = (await import("../models/Product")).default;
+        const Product = (await import("../../models/Product")).default;
         const newProduct = new Product(productData);
         const savedProduct = await newProduct.save();
 

@@ -6,12 +6,21 @@ import { createMocks } from 'node-mocks-http';
 import { NextApiRequest, NextApiResponse } from 'next';
 import mongoose from 'mongoose';
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import Product from '../models/Product';
+import Product from '../../models/Product';
 
 // Import API handlers
-import productsHandler from '../pages/api/products/index';
-import productByIdHandler from '../pages/api/products/[id]';
-import categoriesHandler from '../pages/api/products/categories';
+import productsHandler from '../../pages/api/products';
+import productByIdHandler from '../../pages/api/products/[id]';
+import categoriesHandler from '../../pages/api/products/categories';
+
+interface ProductData {
+    id: number;
+    produkt: string;
+    marke: string;
+    labels: string[];
+    controversy: string[];
+    herkunftsland: string;
+}
 
 describe('Products REST API End-to-End Tests', () => {
     let mongoServer: MongoMemoryServer;
@@ -124,7 +133,7 @@ describe('Products REST API End-to-End Tests', () => {
             expect(res._getStatusCode()).toBe(200);
             const data = JSON.parse(res._getData());
             expect(data).toHaveLength(2);
-            expect(data.every((p: any) => p.labels.includes('Fairtrade'))).toBe(true);
+            expect(data.every((p: ProductData) => p.labels.includes('Fairtrade'))).toBe(true);
         });
 
         test('excludes products with controversies', async () => {
@@ -138,7 +147,7 @@ describe('Products REST API End-to-End Tests', () => {
             expect(res._getStatusCode()).toBe(200);
             const data = JSON.parse(res._getData());
             expect(data).toHaveLength(2);
-            expect(data.every((p: any) => !p.controversy.includes('Kinderarbeit'))).toBe(true);
+            expect(data.every((p: ProductData) => !p.controversy.includes('Kinderarbeit'))).toBe(true);
         });
     });
 

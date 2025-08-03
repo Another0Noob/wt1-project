@@ -21,16 +21,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         try {
             const { q, marke, labels, controversy, herkunftsland } = req.query;
 
-            const filter: any = {};
+            interface ProductFilter {
+                produkt?: { $regex: string; $options: string };
+                marke?: { $regex: string; $options: string };
+                labels?: { $in: string[] };
+                controversy?: { $nin: string[] };
+                herkunftsland?: { $regex: string; $options: string };
+            }
+
+            const filter: ProductFilter = {};
 
             // Text search in product name
             if (q) {
-                filter.produkt = { $regex: q, $options: 'i' };
+                const searchTerm = Array.isArray(q) ? q[0] : q;
+                filter.produkt = { $regex: searchTerm, $options: 'i' };
             }
 
             // Filter by brand
             if (marke) {
-                filter.marke = { $regex: marke, $options: 'i' };
+                const brandTerm = Array.isArray(marke) ? marke[0] : marke;
+                filter.marke = { $regex: brandTerm, $options: 'i' };
             }
 
             // Filter by labels
@@ -47,7 +57,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             // Filter by origin country
             if (herkunftsland) {
-                filter.herkunftsland = { $regex: herkunftsland, $options: 'i' };
+                const countryTerm = Array.isArray(herkunftsland) ? herkunftsland[0] : herkunftsland;
+                filter.herkunftsland = { $regex: countryTerm, $options: 'i' };
             }
 
             const products = await Product.find(filter).sort({ id: 1 });

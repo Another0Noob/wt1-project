@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "author": "",
-  "main": "old/index.js",
+  "main": "pages/index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -20,11 +20,16 @@
     "lint": "next lint",
     "save": "tsx scripts/SaveProduct.ts",
     "search": "tsx scripts/SearchProducts.ts",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "jest __tests__/unit",
+    "test:unit": "jest __tests__/unit",
+    "test:system": "jest __tests__/system",
+    "test:all": "jest",
+    "test:watch": "jest --watch __tests__/unit",
+    "test:coverage": "jest --coverage __tests__/unit",
+    "systemtest": "jest __tests__/system"
   },
   "dependencies": {
+    "check-node-version": "^4.2.1",
     "fs-extra": "^11.3.0",
     "mongodb-memory-server": "^10.1.4",
     "mongoose": "^8.16.1",

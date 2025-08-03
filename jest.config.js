@@ -204,6 +204,11 @@ const config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+  // Setup file to configure test environment
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+
+  // Test timeout for longer-running database operations
+  testTimeout: 30000
 };
 
 module.exports = config;

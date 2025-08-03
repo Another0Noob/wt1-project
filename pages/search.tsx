@@ -37,7 +37,7 @@ export default function SearchPage() {
     }, []);
 
     useEffect(() => {
-        let filtered = produkte.filter(p => {
+        const filtered = produkte.filter(p => {
             // Search term filter
             const matchesSearch = p.produkt.toLowerCase().includes(searchTerm.toLowerCase());
 

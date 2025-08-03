@@ -21,7 +21,7 @@ const MockProduct = jest.fn().mockImplementation(function(this: any, data: any) 
 // Add static methods to the mock constructor
 MockProduct.find = mockProductFind;
 
-jest.mock("../models/Product", () => ({
+jest.mock("../../models/Product", () => ({
     __esModule: true,
     default: MockProduct,
 }));
@@ -70,7 +70,7 @@ describe("SearchProducts Script with Mongoose Spies", () => {
         const searchTerm = 'kaffee';
         const query = { produkt: { $regex: searchTerm, $options: 'i' } };
 
-        const Product = (await import("../models/Product")).default;
+        const Product = (await import("../../models/Product")).default;
         const result = await Product.find(query);
 
         expect(connectSpy).toHaveBeenCalledWith(mongoUri);
@@ -109,7 +109,7 @@ describe("SearchProducts Script with Mongoose Spies", () => {
         if (labelsFilter.length) query.labels = { $in: labelsFilter };
         if (controversyFilter.length) query.controversy = { $in: controversyFilter };
 
-        const Product = (await import("../models/Product")).default;
+        const Product = (await import("../../models/Product")).default;
         const result = await Product.find(query);
 
         expect(mockProductFind).toHaveBeenCalledWith({
@@ -126,7 +126,7 @@ describe("SearchProducts Script with Mongoose Spies", () => {
         mockProductFind.mockResolvedValue([]);
 
         const query = { produkt: { $regex: 'nonexistent', $options: 'i' } };
-        const Product = (await import("../models/Product")).default;
+        const Product = (await import("../../models/Product")).default;
         const result = await Product.find(query);
 
         expect(mockProductFind).toHaveBeenCalledWith(query);

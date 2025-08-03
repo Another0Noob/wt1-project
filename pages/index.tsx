@@ -1,5 +1,6 @@
 // app/page.tsx or pages/index.tsx
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import Header from '../components/Header';
 
 type Produkt = {
@@ -32,7 +33,7 @@ export default function Home() {
                         <h2>Produkte durchsuchen</h2>
                         <p>Durchsuchen Sie unsere Produktliste nach nachhaltigen Artikeln</p>
                         <p>Verfügbare Produkte: {produkte.length}</p>
-                        <a href="search" className="button">Zur Suche</a>
+                        <Link href="/search" className="button">Zur Suche</Link>
                     </div>
                     <div className="card">
                         <h2>Neueste Produkte</h2>
@@ -50,7 +51,7 @@ export default function Home() {
                     <div className="card">
                         <h2>Produkt bewerten</h2>
                         <p>Teilen Sie Ihre Erfahrungen mit nachhaltigen Produkten</p>
-                        <a href="/review" className="button">Bewertung abgeben</a>
+                        <Link href="/review" className="button">Bewertung abgeben</Link>
                     </div>
                 </div>
             </div>
