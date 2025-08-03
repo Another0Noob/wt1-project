@@ -2,7 +2,7 @@ name: Test & Tag
 
 on:
   push:
-    branches: [ main, LAB_08 ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
