@@ -74,4 +74,4 @@ jobs:
       - name: Create and push new tag
         run: |
           git tag LAB_08
-          git push origin refs/tags/LAB_08
+          git push origin refs/tags/LAB_08:refs/tags/LAB_08
