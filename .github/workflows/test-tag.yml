@@ -69,7 +69,7 @@ jobs:
           # Delete local tag if it exists
           git tag -d LAB_08 2>/dev/null || true
           # Delete remote tag if it exists
-          git push origin :refs/tags/LAB_08 2>/dev/null || true
+          git push origin --delete refs/tags/LAB_08 2>/dev/null || true
 
       - name: Create and push new tag
         run: |
