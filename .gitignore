@@ -3,3 +3,5 @@ container_logs/
 .next/
 mongodb_data_container/
 coverage/
+.vercel
+.env*.local
